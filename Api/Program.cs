@@ -1,4 +1,5 @@
 using Infra;
+using Serilog;
 using Services;
 using Services.Profiles;
 
@@ -10,6 +11,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(Maps));
 builder.Services.AddRepositories();
 builder.Services.AddServices();
+
 
 var app = builder.Build();
 
