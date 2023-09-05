@@ -1,110 +1,118 @@
-# ApiMongoDb
+<div align="center">
 
-This is a sample API built with .NET 6 that provides CRUD (Create, Read, Update, Delete) operations for managing products using MongoDB as the database. It demonstrates the use of AutoMapper for object mapping, the Repository Pattern for data access, and Services for encapsulating business logic.
+# 💫 ApiMongoDb 💫
 
-## Features
+</div>
 
-- **Create**: Add a new product to the database.
-- **Read**: Retrieve a list of all products or a specific product by its ID.
-- **Update**: Update an existing product's information.
-- **Delete**: Remove a product from the database.
+<div align="center">
 
-## Technologies Used
+Esta é uma API de exemplo construída com .NET 6 que oferece operações CRUD (Create, Read, Update, Delete) para gerenciar produtos usando o MongoDB como banco de dados. Demonstramos o uso do AutoMapper para mapeamento de objetos, o Padrão de Repositório para acesso a dados e Serviços para encapsular a lógica de negócios.
+
+</div>
+
+## Funcionalidades
+
+- **Create**: Adicione um novo produto ao banco de dados.
+- **Read**: Recupere uma lista de todos os produtos ou um produto específico pelo seu ID.
+- **Update**: Atualize as informações de um produto existente.
+- **Delete**: Remova um produto do banco de dados.
+
+## Tecnologias Utilizadas
 
 - .NET 6
-- MongoDB: A NoSQL database for storing product data.
-- AutoMapper: Used for mapping between DTOs (Data Transfer Objects) and domain models.
-- Repository Pattern: Separation of data access logic from business logic.
-- Dependency Injection: Utilized to manage the application's services.
-- Serilog: Used for showing logs into application console
+- MongoDB: Um banco de dados NoSQL para armazenar dados de produtos.
+- AutoMapper: Usado para mapear entre DTOs (Objetos de Transferência de Dados) e modelos de domínio.
+- Padrão de Repositório: Separação da lógica de acesso a dados da lógica de negócios.
+- Injeção de Dependência: Utilizada para gerenciar os serviços da aplicação.
+- Serilog: Usado para exibir logs na console da aplicação.
 
-## Prerequisites
+## Pré-requisitos
 
-- .NET 6 SDK: Make sure you have .NET 6 installed on your machine. You can download it [here](https://dotnet.microsoft.com/download/dotnet/6.0).
-- MongoDB: You need a running MongoDB instance. You can use a locally installed MongoDB server or run it in a Docker container.
+- .NET 6 SDK: Certifique-se de ter o .NET 6 instalado em sua máquina. Você pode baixá-lo [aqui](https://dotnet.microsoft.com/download/dotnet/6.0).
+- MongoDB: Você precisa de uma instância do MongoDB em execução. Você pode usar um servidor MongoDB instalado localmente ou executá-lo em um contêiner Docker.
 
-## Getting Started
+## Começando
 
-1. **Clone the Repository**:
+1. **Clone o Repositório**:
 
    ```bash
    git clone https://github.com/guilhermebernava/ApiMongo.git
    ```
 
-2. **Update AppSettings**:
+2. **Atualize as Configurações do AppSettings**:
 
-   Open the `appsettings.json` file and configure the MongoDB connection string and database name.
+   Abra o arquivo `appsettings.json` e configure a string de conexão do MongoDB e o nome do banco de dados.
 
    ```json
    "ConnectionStrings": {
        "MongoDB": "mongodb://localhost:27017"
    },
    "DatabaseSettings": {
-       "DatabaseName": "YourDatabaseName",
-       "CollectionName": "Products"
+       "DatabaseName": "SeuNomeDeBancoDeDados",
+       "CollectionName": "Produtos"
    }
    ```
 
-3. **Run the API**:
+3. **Execute a API**:
 
    ```bash
    dotnet run
    ```
 
-   The API will be accessible at `http://localhost:5000` by default. You can use tools like Postman or cURL to interact with the API endpoints.
+   A API estará acessível em `http://localhost:5000` por padrão. Você pode usar ferramentas como o Postman ou o cURL para interagir com os endpoints da API.
 
-## API Endpoints
+## Endpoints da API
 
-- **GET /api/products**: Get a list of all products.
-- **GET /api/products/{id}**: Get a product by its ID.
-- **POST /api/products**: Create a new product.
-- **PUT /api/products/{id}**: Update an existing product.
-- **DELETE /api/products/{id}**: Delete a product by its ID.
+- **GET /api/products**: Obtenha uma lista de todos os produtos.
+- **GET /api/products/{id}**: Obtenha um produto pelo seu ID.
+- **POST /api/products**: Crie um novo produto.
+- **PUT /api/products/{id}**: Atualize um produto existente.
+- **DELETE /api/products/{id}**: Exclua um produto pelo seu ID.
 
-## Usage Examples
+## Exemplos de Uso
 
-Here are some examples of how to use the API endpoints:
+Aqui estão alguns exemplos de como usar os endpoints da API:
 
-### Create a Product
+### Criar um Produto
 
 ```http
 POST /api/products
 Content-Type: application/json
 
 {
-    "name": "Product Name",
+    "name": "Nome do Produto",
     "price": 19.99
 }
 ```
 
-### Get a List of All Products
+### Obter uma Lista de Todos os Produtos
 
 ```http
 GET /api/products
 ```
 
-### Get a Product by ID
+### Obter um Produto pelo ID
 
 ```http
 GET /api/products/{id}
 ```
 
-### Update a Product
+### Atualizar um Produto
 
 ```http
 PUT /api/products/{id}
 Content-Type: application/json
 
 {
-    "name": "Updated Product Name",
+    "name": "Nome do Produto Atualizado",
     "price": 29.99
 }
 ```
 
-### Delete a Product by ID
+### Excluir um Produto pelo ID
 
 ```http
 DELETE /api/products/{id}
 ```
 
----
+</div>
