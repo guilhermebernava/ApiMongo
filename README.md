@@ -1,82 +1,109 @@
-# AWS DynamoDB Product API
+# ApiMongoDb
 
-Manage products with ease using this CRUD (Create, Read, Update, Delete) API powered by Amazon DynamoDB as the underlying database. To get started, follow the steps below to configure your AWS CLI profile and integrate it with the `appsettings.json` file.
+This is a sample API built with .NET 6 that provides CRUD (Create, Read, Update, Delete) operations for managing products using MongoDB as the database. It demonstrates the use of AutoMapper for object mapping, the Repository Pattern for data access, and Services for encapsulating business logic.
+
+## Features
+
+- **Create**: Add a new product to the database.
+- **Read**: Retrieve a list of all products or a specific product by its ID.
+- **Update**: Update an existing product's information.
+- **Delete**: Remove a product from the database.
+
+## Technologies Used
+
+- .NET 6
+- MongoDB: A NoSQL database for storing product data.
+- AutoMapper: Used for mapping between DTOs (Data Transfer Objects) and domain models.
+- Repository Pattern: Separation of data access logic from business logic.
+- Dependency Injection: Utilized to manage the application's services.
 
 ## Prerequisites
 
-Before you begin, ensure you have the following prerequisites installed:
+- .NET 6 SDK: Make sure you have .NET 6 installed on your machine. You can download it [here](https://dotnet.microsoft.com/download/dotnet/6.0).
+- MongoDB: You need a running MongoDB instance. You can use a locally installed MongoDB server or run it in a Docker container.
 
-1. [.NET 6 SDK](https://dotnet.microsoft.com/download/dotnet/6.0)
-2. [AWS Command Line Interface (CLI)](https://aws.amazon.com/cli/)
+## Getting Started
 
-## Configuration
-
-### 1. AWS CLI Configuration
-
-Follow these steps to configure your AWS CLI profile:
-
-1. Install the AWS CLI by referring to the [official installation guide](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html).
-
-2. Open your terminal or command prompt and run the following command, replacing `your-profile-name` with your chosen AWS profile name:
+1. **Clone the Repository**:
 
    ```bash
-   aws configure --profile your-profile-name
+   git clone https://github.com/guilhermebernava/ApiMongo.git
    ```
 
-3. You'll be prompted to provide your AWS Access Key ID, AWS Secret Access Key, default region name, and output format. Enter the required information based on your AWS account setup.
+2. **Update AppSettings**:
 
-### 2. `appsettings.json` Configuration
+   Open the `appsettings.json` file and configure the MongoDB connection string and database name.
 
-In the `appsettings.json` file of the API project, include your AWS profile name as follows:
-
-```json
-{
-  "AWS": {
-    "Profile": "your-profile-name",
-    "Region": "your-aws-region"
-  },
-  "Logging": {
-    "LogLevel": {
-      "Default": "Information",
-      "Microsoft": "Warning",
-      "Microsoft.Hosting.Lifetime": "Information"
-    }
-  },
-  // Other settings...
-}
-```
-
-Replace `"your-profile-name"` with the AWS profile name you configured in the AWS CLI, and set `"your-aws-region"` to your preferred AWS region (e.g., `"us-east-1"`).
-
-## Running the API
-
-To run the API locally, follow these steps:
-
-1. Clone this repository to your local machine:
-
-   ```bash
-   git clone https://github.com/your-repo-url/aws-dynamodb-product-api.git
+   ```json
+   "ConnectionStrings": {
+       "MongoDB": "mongodb://localhost:27017"
+   },
+   "DatabaseSettings": {
+       "DatabaseName": "YourDatabaseName",
+       "CollectionName": "Products"
+   }
    ```
 
-2. Navigate to the project directory:
-
-   ```bash
-   cd aws-dynamodb-product-api
-   ```
-
-3. Build and run the API using the .NET CLI:
+3. **Run the API**:
 
    ```bash
    dotnet run
    ```
 
-The API will be accessible locally at `http://localhost:5000` or `https://localhost:5001`.
+   The API will be accessible at `http://localhost:5000` by default. You can use tools like Postman or cURL to interact with the API endpoints.
 
 ## API Endpoints
 
-Explore the following API endpoints:
+- **GET /api/products**: Get a list of all products.
+- **GET /api/products/{id}**: Get a product by its ID.
+- **POST /api/products**: Create a new product.
+- **PUT /api/products/{id}**: Update an existing product.
+- **DELETE /api/products/{id}**: Delete a product by its ID.
 
-- **GET /api/product**: Retrieve a list of all products.
-- **POST /api/product**: Create a new product.
-- **PUT /api/product**: Update an existing product by ID.
-- **DELETE /api/product**: Delete a product by ID.
+## Usage Examples
+
+Here are some examples of how to use the API endpoints:
+
+### Create a Product
+
+```http
+POST /api/products
+Content-Type: application/json
+
+{
+    "name": "Product Name",
+    "price": 19.99
+}
+```
+
+### Get a List of All Products
+
+```http
+GET /api/products
+```
+
+### Get a Product by ID
+
+```http
+GET /api/products/{id}
+```
+
+### Update a Product
+
+```http
+PUT /api/products/{id}
+Content-Type: application/json
+
+{
+    "name": "Updated Product Name",
+    "price": 29.99
+}
+```
+
+### Delete a Product by ID
+
+```http
+DELETE /api/products/{id}
+```
+
+---
