@@ -16,6 +16,7 @@ This is a sample API built with .NET 6 that provides CRUD (Create, Read, Update,
 - AutoMapper: Used for mapping between DTOs (Data Transfer Objects) and domain models.
 - Repository Pattern: Separation of data access logic from business logic.
 - Dependency Injection: Utilized to manage the application's services.
+- Serilog: Used for showing logs into application console
 
 ## Prerequisites
 
